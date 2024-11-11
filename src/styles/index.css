@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Reset and base styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  * {
+    margin: 0;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  #root, #__next {
+    isolation: isolate;
+  }
+  
+  /* Custom properties */
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    
+    --foreground: hsl(222.2 84% 4.9%);
+    --background: hsl(0 0% 100%);
+    --muted: hsl(210 40% 96.1%);
+    --muted-foreground: hsl(215.4 16.3% 46.9%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(222.2 84% 4.9%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(222.2 84% 4.9%);
+    --border: hsl(214.3 31.8% 91.4%);
+    --input: hsl(214.3 31.8% 91.4%);
+    --primary: hsl(222.2 47.4% 11.2%);
+    --primary-foreground: hsl(210 40% 98%);
+    --secondary: hsl(210 40% 96.1%);
+    --secondary-foreground: hsl(222.2 47.4% 11.2%);
+    --accent: hsl(210 40% 96.1%);
+    --accent-foreground: hsl(222.2 47.4% 11.2%);
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(210 40% 98%);
+    --ring: hsl(215 20.2% 65.1%);
+    --radius: 0.5rem;
+    --text-foreground: hsl(222.2 84% 4.9%);
+  }
+  
+  .dark {
+    --background: hsl(222.2 84% 4.9%);
+    --foreground: hsl(210 40% 98%);
+    --muted: hsl(217.2 32.6% 17.5%);
+    --muted-foreground: hsl(215 20.2% 65.1%);
+    --popover: hsl(222.2 84% 4.9%);
+    --popover-foreground: hsl(210 40% 98%);
+    --card: hsl(222.2 84% 4.9%);
+    --card-foreground: hsl(210 40% 98%);
+    --border: hsl(217.2 32.6% 17.5%);
+    --input: hsl(217.2 32.6% 17.5%);
+    --primary: hsl(210 40% 98%);
+    --primary-foreground: hsl(222.2 47.4% 11.2%);
+    --secondary: hsl(217.2 32.6% 17.5%);
+    --secondary-foreground: hsl(210 40% 98%);
+    --accent: hsl(217.2 32.6% 17.5%);
+    --accent-foreground: hsl(210 40% 98%);
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(0 85.7% 97.3%);
+    --ring: hsl(217.2 32.6% 17.5%);
+    --text-foreground: hsl(210 40% 98%);
+  }
+  
+  /* Global styles */
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  /* Utility classes */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .transition-colors {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  
+  .focus-visible\:outline-none:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  
+  .focus-visible\:ring-2:focus-visible {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  }
+  
+  .focus-visible\:ring-ring:focus-visible {
+    --tw-ring-color: var(--ring);
+  }
+  
+  .focus-visible\:ring-offset-2:focus-visible {
+    --tw-ring-offset-width: 2px;
+  }
+  /*
+  Container styling for the entire tabs section
+.tabs-container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Styling for the tabs list that holds all triggers */
+/* .tabs-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 2px solid #e2e8f0; 
+} */
+
+/* Individual tab trigger (button) styling */
+/* .tabs-trigger {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a5568; 
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  border-bottom: 2px solid transparent;
+} */
+
+/* .tabs-trigger:hover {
+  color: #3182ce; 
+} */
+
+/* Active tab styling */
+/* .tabs-trigger-active {
+  color: #3182ce; 
+  border-bottom-color: #3182ce; 
+} */
+
+/* Content styling for each tab's content area */
+/* .tabs-content {
+  padding: 1rem;
+  background-color: #f7fafc; 
+  border-radius: 0.25rem;
+  display: none; 
+} */
+
+/* Display active tab content */
+/* .tabs-content-active {
+  display: block;
+} */
+
+/* Responsive styling */
+/* @media (max-width: 640px) {
+  .tabs-trigger {
+    font-size: 0.9rem; 
+    padding: 0.5rem;
+  }
+  .tabs-content {
+    padding: 0.75rem; 
+  }
+} */
+
+  
